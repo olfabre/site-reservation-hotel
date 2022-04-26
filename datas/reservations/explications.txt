@@ -1,0 +1,11 @@
+NE PAS SUPPRIMER LES REPERTOIRES 1,2,3,4,5,6
+
+A chauqe réservations réalisée, un fichier de format .txt sera créé dans le répertoire qui correspond au type de chambre.
+Ce fichier  l'ID de la chambre qui est marqué en dur sur les fichiers /datas/chambres/
+Par exemple:B-3-032
+Ce fichier comportera aussi une numero d'identification unique qui sera à la fois écrit dans le fichier mais aussi dans le titre du fichier. 
+
+alors le fichier aura comme nom:  Id de la chambre "-" Id de la reservation
+exemple: B-3-032-2345543.txt
+
+Cette démarche permettra de trouver facilement une réservation par référence.

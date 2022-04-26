@@ -1,0 +1,35 @@
+NE PAS MODIIFER LES FICHIER 1,2,3,4,5,6.txt
+
+ici se trouve toutes les chambres détenues par l'hotel
+
+le fichier 1.txt comporte toutes les chambres simples
+le fichier 2.txt comporte toutes les chambres doubles
+le fichier 3.txt comporte toutes les chambres doubles supérieures
+le fichier 4.txt comporte toutes les chambres twins
+le fichier 5.txt comporte toutes les chambres triples
+le fichier 6.txt comporte toutes les chambres familiales
+
+Les fichiers ont la même structure. Chaque chambre a une identifiaction unique, à savoir:
+
+Type de chambre - Etage - Porte
+
+S-1-001 -> chambre simple 1 etage porte 001
+D-1-004 -> chambre double 1 etage porte 004
+B-2-001 -> chambre double superieure 2ème étage porte 001
+W-3-022 -> chambre twins 3ème étage porte 22
+T-3-001 -> chambre triples 3ème étage porte 001
+F-2-001 -> chambre familiale 2ème étage porte 001
+
+
+Le numéro de porte est aussi unique!
+
+il y a 52 chambres au total:
+
+Simple: 14 chambres
+Double: 11 chambres
+Double superieure: 6 chambres
+Twins: 5 chambres
+Triples: 10 chambres
+Familiale: 6 chambres
+
+

@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": true,
+      "cwd": "/Users/olfabre/Desktop/DEV/mes-sites-web/site-reservation-hotel",
+      "environment": [],
+      "program": "/Users/olfabre/Desktop/DEV/mes-sites-web/site-reservation-hotel/build/Debug/outDebug",
+      "internalConsoleOptions": "openOnSessionStart",
+      "MIMode": "gdb",
+      "console": "integratedTerminal"
+    }
+  ]
+}
