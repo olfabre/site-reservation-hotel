@@ -106,7 +106,7 @@ if (isset($_GET["action"]) && $_GET["action"] == 14){
 
 
 
- // Type de chambre 1
+ // Type de chambre 2
     /* Ouverture en lecture seule le fichier de la liste des chambres de même type */
     $fichierChambreTypeSelection = fopen($pathTypeChambreDispoType2, "r");
         // On va lire ligne par ligne
@@ -137,7 +137,48 @@ if (isset($_GET["action"]) && $_GET["action"] == 14){
                 $compteurChambreReservationType1++;
                 list($reference_chambre, $idclient, $lastname, $email, $duree, $paiement, $data ) = explode ("|",$lecture_ligne_reservation);
                 $valeurTotalSejour =  $valeurTotalSejour + (int)$duree;
-                $valeurTotalSejourType1 = $valeurTotalSejourType2 + (int)$duree;
+                $valeurTotalSejourType2 = $valeurTotalSejourType2 + (int)$duree;
+                    }
+                    fclose($fichierChambreTypeResrevation);
+
+
+                }
+            }
+ fclose($fichierChambreTypeSelection);
+
+
+// Type de chambre 3
+    /* Ouverture en lecture seule le fichier de la liste des chambres de même type */
+    $fichierChambreTypeSelection = fopen($pathTypeChambreDispoType3, "r");
+        // On va lire ligne par ligne
+        while(!feof($fichierChambreTypeSelection)){
+            $lecture_ligne = fgets($fichierChambreTypeSelection);
+            
+            $reference_chambre = trim(htmlspecialchars($lecture_ligne, ENT_QUOTES));
+            $fichierChambreReservation = $reference_chambre . ".txt";
+            
+
+
+        /*  On vérifie que pour chaque chambre lue, il n'y a pas de réservation pour celle-ci en vérifiant dans le bon répertoire
+            qu'un fichier de réservation est présent.
+            Si c'est le cas, on l'affichera. 
+        */
+        $pathFichier = $pathTypeChambreReservationType3 . $fichierChambreReservation;
+        if (file_exists($pathFichier)){
+
+        //echo $pathFichier;
+   
+                /* Ouverture en lecture seule le fichier de la liste des chambres de même type en réservation */
+                $fichierChambreTypeResrevation = fopen($pathFichier, "r");
+
+                
+                // On va lire ligne par ligne
+                 while(!feof($fichierChambreTypeResrevation)){
+                $lecture_ligne_reservation = fgets($fichierChambreTypeResrevation);
+                $compteurChambreReservationType3++;
+                list($reference_chambre, $idclient, $lastname, $email, $duree, $paiement, $data ) = explode ("|",$lecture_ligne_reservation);
+                $valeurTotalSejour =  $valeurTotalSejour + (int)$duree;
+                $valeurTotalSejourType3 = $valeurTotalSejourType3 + (int)$duree;
                     }
                     fclose($fichierChambreTypeResrevation);
 
@@ -148,12 +189,13 @@ if (isset($_GET["action"]) && $_GET["action"] == 14){
 
 
 
-
-
-
 echo $compteurChambreReservationType1;
+echo $compteurChambreReservationType2;
+echo $compteurChambreReservationType3;
 echo $valeurTotalSejour;
 echo $valeurTotalSejourType1;
+echo $valeurTotalSejourType2;
+echo $valeurTotalSejourType3;
 
 
 
