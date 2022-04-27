@@ -64,7 +64,7 @@ if (isset($_GET["action"]) && $_GET["action"] == 14){
     $compteurChambreReservationType6 = 0;
 
 
-   // Type de chambre 1
+   // Type de chambre 1 - Chambre Simple
     /* Ouverture en lecture seule le fichier de la liste des chambres de même type */
     $fichierChambreTypeSelection = fopen($pathTypeChambreDispoType1, "r");
         // On va lire ligne par ligne
@@ -96,6 +96,7 @@ if (isset($_GET["action"]) && $_GET["action"] == 14){
                 list($reference_chambre, $idclient, $lastname, $email, $duree, $paiement, $data ) = explode ("|",$lecture_ligne_reservation);
                 $valeurTotalSejour =  $valeurTotalSejour + (int)$duree;
                 $valeurTotalSejourType1 = $valeurTotalSejourType1 + (int)$duree;
+                
                     }
                     fclose($fichierChambreTypeResrevation);
 
@@ -106,7 +107,7 @@ if (isset($_GET["action"]) && $_GET["action"] == 14){
 
 
 
- // Type de chambre 2
+ // Type de chambre 2 - Chambre Double
     /* Ouverture en lecture seule le fichier de la liste des chambres de même type */
     $fichierChambreTypeSelection = fopen($pathTypeChambreDispoType2, "r");
         // On va lire ligne par ligne
@@ -134,10 +135,11 @@ if (isset($_GET["action"]) && $_GET["action"] == 14){
                 // On va lire ligne par ligne
                  while(!feof($fichierChambreTypeResrevation)){
                 $lecture_ligne_reservation = fgets($fichierChambreTypeResrevation);
-                $compteurChambreReservationType1++;
+                $compteurChambreReservationType2++;
                 list($reference_chambre, $idclient, $lastname, $email, $duree, $paiement, $data ) = explode ("|",$lecture_ligne_reservation);
                 $valeurTotalSejour =  $valeurTotalSejour + (int)$duree;
                 $valeurTotalSejourType2 = $valeurTotalSejourType2 + (int)$duree;
+                
                     }
                     fclose($fichierChambreTypeResrevation);
 
@@ -147,7 +149,7 @@ if (isset($_GET["action"]) && $_GET["action"] == 14){
  fclose($fichierChambreTypeSelection);
 
 
-// Type de chambre 3
+// Type de chambre 3 - Chambre Double Supérieure
     /* Ouverture en lecture seule le fichier de la liste des chambres de même type */
     $fichierChambreTypeSelection = fopen($pathTypeChambreDispoType3, "r");
         // On va lire ligne par ligne
@@ -189,13 +191,156 @@ if (isset($_GET["action"]) && $_GET["action"] == 14){
 
 
 
+// Type de chambre 4 - Chambre Double Twin
+    /* Ouverture en lecture seule le fichier de la liste des chambres de même type */
+    $fichierChambreTypeSelection = fopen($pathTypeChambreDispoType4, "r");
+        // On va lire ligne par ligne
+        while(!feof($fichierChambreTypeSelection)){
+            $lecture_ligne = fgets($fichierChambreTypeSelection);
+            
+            $reference_chambre = trim(htmlspecialchars($lecture_ligne, ENT_QUOTES));
+            $fichierChambreReservation = $reference_chambre . ".txt";
+            
+
+
+        /*  On vérifie que pour chaque chambre lue, il n'y a pas de réservation pour celle-ci en vérifiant dans le bon répertoire
+            qu'un fichier de réservation est présent.
+            Si c'est le cas, on l'affichera. 
+        */
+        $pathFichier = $pathTypeChambreReservationType4 . $fichierChambreReservation;
+        if (file_exists($pathFichier)){
+
+        //echo $pathFichier;
+   
+                /* Ouverture en lecture seule le fichier de la liste des chambres de même type en réservation */
+                $fichierChambreTypeResrevation = fopen($pathFichier, "r");
+
+                
+                // On va lire ligne par ligne
+                 while(!feof($fichierChambreTypeResrevation)){
+                $lecture_ligne_reservation = fgets($fichierChambreTypeResrevation);
+                $compteurChambreReservationType4++;
+                list($reference_chambre, $idclient, $lastname, $email, $duree, $paiement, $data ) = explode ("|",$lecture_ligne_reservation);
+                $valeurTotalSejour =  $valeurTotalSejour + (int)$duree;
+                $valeurTotalSejourType4 = $valeurTotalSejourType4 + (int)$duree;
+                    }
+                    fclose($fichierChambreTypeResrevation);
+
+
+                }
+            }
+ fclose($fichierChambreTypeSelection);
+
+
+// Type de chambre 5 - Chambre Double Twin
+    /* Ouverture en lecture seule le fichier de la liste des chambres de même type */
+    $fichierChambreTypeSelection = fopen($pathTypeChambreDispoType5, "r");
+        // On va lire ligne par ligne
+        while(!feof($fichierChambreTypeSelection)){
+            $lecture_ligne = fgets($fichierChambreTypeSelection);
+            
+            $reference_chambre = trim(htmlspecialchars($lecture_ligne, ENT_QUOTES));
+            $fichierChambreReservation = $reference_chambre . ".txt";
+            
+
+
+        /*  On vérifie que pour chaque chambre lue, il n'y a pas de réservation pour celle-ci en vérifiant dans le bon répertoire
+            qu'un fichier de réservation est présent.
+            Si c'est le cas, on l'affichera. 
+        */
+        $pathFichier = $pathTypeChambreReservationType5 . $fichierChambreReservation;
+        if (file_exists($pathFichier)){
+
+        //echo $pathFichier;
+   
+                /* Ouverture en lecture seule le fichier de la liste des chambres de même type en réservation */
+                $fichierChambreTypeResrevation = fopen($pathFichier, "r");
+
+                
+                // On va lire ligne par ligne
+                 while(!feof($fichierChambreTypeResrevation)){
+                $lecture_ligne_reservation = fgets($fichierChambreTypeResrevation);
+                $compteurChambreReservationType5++;
+                list($reference_chambre, $idclient, $lastname, $email, $duree, $paiement, $data ) = explode ("|",$lecture_ligne_reservation);
+                $valeurTotalSejour =  $valeurTotalSejour + (int)$duree;
+                $valeurTotalSejourType5 = $valeurTotalSejourType5 + (int)$duree;
+                    }
+                    fclose($fichierChambreTypeResrevation);
+
+
+                }
+            }
+ fclose($fichierChambreTypeSelection);
+
+
+
+// Type de chambre 6 - Chambre Familiale
+    /* Ouverture en lecture seule le fichier de la liste des chambres de même type */
+    $fichierChambreTypeSelection = fopen($pathTypeChambreDispoType6, "r");
+        // On va lire ligne par ligne
+        while(!feof($fichierChambreTypeSelection)){
+            $lecture_ligne = fgets($fichierChambreTypeSelection);
+            
+            $reference_chambre = trim(htmlspecialchars($lecture_ligne, ENT_QUOTES));
+            $fichierChambreReservation = $reference_chambre . ".txt";
+            
+
+
+        /*  On vérifie que pour chaque chambre lue, il n'y a pas de réservation pour celle-ci en vérifiant dans le bon répertoire
+            qu'un fichier de réservation est présent.
+            Si c'est le cas, on l'affichera. 
+        */
+        $pathFichier = $pathTypeChambreReservationType6 . $fichierChambreReservation;
+        if (file_exists($pathFichier)){
+
+        //echo $pathFichier;
+   
+                /* Ouverture en lecture seule le fichier de la liste des chambres de même type en réservation */
+                $fichierChambreTypeResrevation = fopen($pathFichier, "r");
+
+                
+                // On va lire ligne par ligne
+                 while(!feof($fichierChambreTypeResrevation)){
+                $lecture_ligne_reservation = fgets($fichierChambreTypeResrevation);
+                $compteurChambreReservationType6++;
+                list($reference_chambre, $idclient, $lastname, $email, $duree, $paiement, $data ) = explode ("|",$lecture_ligne_reservation);
+                $valeurTotalSejour =  $valeurTotalSejour + (int)$duree;
+                $valeurTotalSejourType6 = $valeurTotalSejourType6 + (int)$duree;
+                    }
+                    fclose($fichierChambreTypeResrevation);
+
+
+                }
+            }
+ fclose($fichierChambreTypeSelection);
+
+
+/*
 echo $compteurChambreReservationType1;
 echo $compteurChambreReservationType2;
 echo $compteurChambreReservationType3;
+echo $compteurChambreReservationType4;
+echo $compteurChambreReservationType5;
+echo $compteurChambreReservationType6;
 echo $valeurTotalSejour;
 echo $valeurTotalSejourType1;
 echo $valeurTotalSejourType2;
 echo $valeurTotalSejourType3;
+echo $valeurTotalSejourType4;
+echo $valeurTotalSejourType5;
+echo $valeurTotalSejourType6;
+*/
+
+if($compteurChambreReservationType1!=0) {$moyenneDureeType1 = round(( $valeurTotalSejourType1 / $compteurChambreReservationType1), 0, PHP_ROUND_HALF_ODD);}else{$moyenneDureeType1 = 0;};
+if($compteurChambreReservationType2!=0) {$moyenneDureeType2 = round(( $valeurTotalSejourType2 / $compteurChambreReservationType2), 0, PHP_ROUND_HALF_ODD);}else{$moyenneDureeType2 = 0;};
+if($compteurChambreReservationType3!=0) {$moyenneDureeType3 = round(( $valeurTotalSejourType3 / $compteurChambreReservationType3), 0, PHP_ROUND_HALF_ODD);}else{$moyenneDureeType3 = 0;};
+if($compteurChambreReservationType4!=0) {$moyenneDureeType4 = round(( $valeurTotalSejourType4 / $compteurChambreReservationType4), 0, PHP_ROUND_HALF_ODD);}else{$moyenneDureeType4 = 0;};
+if($compteurChambreReservationType5!=0) {$moyenneDureeType5 = round(( $valeurTotalSejourType5 / $compteurChambreReservationType5), 0, PHP_ROUND_HALF_ODD);}else{$moyenneDureeType5 = 0;};
+if($compteurChambreReservationType6!=0) {$moyenneDureeType6 = round(( $valeurTotalSejourType6 / $compteurChambreReservationType6), 0, PHP_ROUND_HALF_ODD);}else{$moyenneDureeType6 = 0;};
+//$valeurTotalSejour=$valeurTotalSejourType1+$valeurTotalSejourType2+$valeurTotalSejourType3+$valeurTotalSejourType4+$valeurTotalSejourType5+$valeurTotalSejourType6;
+$compteurChambreReservationTotal = $compteurChambreReservationType1 + $compteurChambreReservationType2 + $compteurChambreReservationType3 + $compteurChambreReservationType4 + $compteurChambreReservationType5 + $compteurChambreReservationType6; 
+
+if($valeurTotalSejour!=0) {$moyenneDureeTypeTotal = round(( $compteurChambreReservationTotal / $valeurTotalSejour), 0, PHP_ROUND_HALF_ODD);}else{$moyenneDureeTypeTotal = 0;};
 
 
 
@@ -206,56 +351,71 @@ echo $valeurTotalSejourType3;
 <div class="w3-container w3-margin-bottom">
   <h2>Séjour moyen par type de chambre</h2>
   <p>Les données sont claculées automatiquement et en temps réel</p>
-
-  <table class="w3-table-all">
+  <table class="w3-table  w3-bordered ">
     <thead>
-      <tr class="w3-light-grey w3-hover-red">
-        <th>Type de chambre</th>
-        <th>Nbr de réservations</th>
-        <th>moyenne séjour</th>
-        <th>Chambre double supérieure</th>
-        <th>Chambre twin</th>
-        <th>Chambre famille</th>
+      <tr class="w3-light-grey">
+        <th class="w3-light-grey">Type Chambre</th>
+        <th class="w3-center">Nbr Réservation</th>
+        <th class="w3-center">Total Nuitée</th>
+        <th class="w3-center">Durée Moyenne</th>
+        <th class="w3-center">&nbsp;</th>
+        
       </tr>
     </thead>
-    <tr class="w3-hover-red">
-        <td>Chambre simple</td>
-        <td><?php echo $compteurChambreReservationType1 ?></td>
-        <td><?php echo $compteurChambreReservationType1 ?></td>
-        <td><?php echo $compteurChambreReservationType1 ?></td>
-        <td><?php echo $compteurChambreReservationType1 ?></td>
-    </tr>
-    <tr class="w3-hover-red">
-    <td>Chambre double</td>
-    <td><?php echo $compteurChambreReservationType1 ?></td>
-   
-        <td><?php echo $compteurChambreReservationType1 ?></td>
-        <td><?php echo $compteurChambreReservationType1 ?></td>
-        <td><?php echo $compteurChambreReservationType1 ?></td>
-    </tr>
-    <tr class="w3-hover-red">
-    <td>Chambre double supérieure</td>
-    <td><?php echo $compteurChambreReservationType1 ?></td>
-        <td><?php echo $compteurChambreReservationType1 ?></td>
-        <td><?php echo $compteurChambreReservationType1 ?></td>
-        <td><?php echo $compteurChambreReservationType1 ?></td>
-    </tr>
-    <tr class="w3-hover-red">
-    <td>Chambre twin</td>
-    <td><?php echo $compteurChambreReservationType1 ?></td>
-        <td><?php echo $compteurChambreReservationType1 ?></td>
-        <td><?php echo $compteurChambreReservationType1 ?></td>
-        <td><?php echo $compteurChambreReservationType1 ?></td>
-    </tr>
-    <tr class="w3-hover-red">
-    <td>Chambre famille</td>
-    <td><?php echo $compteurChambreReservationType1 ?></td>
-        <td><?php echo $compteurChambreReservationType1 ?></td>
-        <td><?php echo $compteurChambreReservationType1 ?></td>
-        <td><?php echo $compteurChambreReservationType1 ?></td>
+
+    <tr class="w3-hover-green">
+        <td class="w3-light-grey">Simple</td>
+        <td class="w3-center "><?php echo $compteurChambreReservationType1 ?></td>
+        <td class="w3-center "><?php echo $valeurTotalSejourType1 ?></td>
+        <td class="w3-center "><?php echo $moyenneDureeType1 ?></td>
+        <td class="w3-center ">&nbsp;</td>
     </tr>
 
+    <tr class="w3-hover-green">
+    <td class="w3-light-grey">Double</td>
+        <td class="w3-center "><?php echo $compteurChambreReservationType2 ?></td>
+        <td class="w3-center "><?php echo $valeurTotalSejourType2 ?></td>
+        <td class="w3-center "><?php echo $moyenneDureeType2 ?></td>
+        <td class="w3-center ">&nbsp;</td>
+    </tr>
 
+    <tr class="w3-hover-green">
+    <td class="w3-light-grey">Double Supérieure</td>
+        <td class="w3-center"><?php echo $compteurChambreReservationType3 ?></td>
+        <td class="w3-center"><?php echo $valeurTotalSejourType3 ?></td>
+        <td class="w3-center"><?php echo $moyenneDureeType3 ?></td>
+        <td class="w3-center">&nbsp;</td>
+    </tr>
+    <tr class="w3-hover-green">
+    <td class="w3-light-grey">Twin</td>
+        <td class="w3-center"><?php echo $compteurChambreReservationType4 ?></td>
+        <td class="w3-center "><?php echo $valeurTotalSejourType4 ?></td>
+        <td class="w3-center "><?php echo $moyenneDureeType4 ?></td>
+        <td class="w3-center ">&nbsp;</td>
+    </tr>
+    <tr class="w3-hover-green">
+    <td class="w3-light-grey">Triple</td>
+        <td class="w3-center"><?php echo $compteurChambreReservationType5 ?></td>
+        <td class="w3-center"><?php echo $valeurTotalSejourType5 ?></td>
+        <td class="w3-center"><?php echo $moyenneDureeType5 ?></td>
+        <td class="w3-center">&nbsp;</td>
+    </tr>
+
+    <tr class="w3-hover-green">
+    <td class="w3-light-grey">Famille</td>
+        <td class="w3-center"><?php echo $compteurChambreReservationType6 ?></td>
+        <td class="w3-center"><?php echo $valeurTotalSejourType6 ?></td>
+        <td class="w3-center"><?php echo $moyenneDureeType6 ?></td>
+        <td class="w3-center">&nbsp;</td>
+    </tr>
+
+    <tr class="w3-hover-green">
+    <th class="w3-green">Total</th>
+        <td class="w3-center w3-green"><?php echo $compteurChambreReservationTotal ?></td>
+        <td class="w3-center w3-green"><?php echo $valeurTotalSejour ?></td>
+        <td class="w3-center w3-green"><?php echo $moyenneDureeType6 ?></td>
+        <td class="w3-center w3-green">&nbsp;</td>
+    </tr>
 
   </table>
 
