@@ -5,7 +5,7 @@
   <a class="w3-btn-floating w3-green" href="https://twitter.com/NimesPhoto" title="Twitter"><i class="fa fa-twitter"></i></a>
   <a class="w3-btn-floating w3-green" href="javascript:void(0)" title="Google +"><i class="fa fa-google-plus"></i></a>
   <a class="w3-btn-floating w3-green w3-hide-small" href="javascript:void(0)" title="Linkedin"><i class="fa fa-linkedin"></i></a>
-  <p>Réalisé par <a href="default.asp.html" target="_blank">Olivier Fabre</a></p>
+  <p>Réalisé par <a href="https://olivier-fabre.com" target="_blank">Olivier Fabre</a></p>
 
 
   <div style="position:relative;bottom:100px;z-index:1;" class="w3-tooltip w3-right">
